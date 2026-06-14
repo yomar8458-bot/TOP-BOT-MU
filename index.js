@@ -13,9 +13,15 @@ const client = new Client({
     ]
 });
 
-// إعداد DisTube مع دعم يوتيوب وسوند كلاود
+const { DisTube } = require('distube');
+const { YtDlpPlugin } = require('@distube/yt-dlp');
+const { SoundCloudPlugin } = require('@distube/soundcloud');
+
 client.distube = new DisTube(client, {
-    plugins: [new SoundCloudPlugin(), new YouTubePlugin()],
+    plugins: [
+        new YtDlpPlugin(),
+        new SoundCloudPlugin()
+    ],
     emitNewSongOnly: true
 });
 
